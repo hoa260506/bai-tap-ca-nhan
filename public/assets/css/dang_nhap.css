@@ -1,0 +1,375 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #08745b;
+    --dark: #073e34;
+    --cream: #faf9f3;
+    --text: #173e32;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 24px;
+    display: grid;
+    place-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: #eeefe7;
+}
+
+/* Khung trang */
+.page {
+    width: min(1100px, 100%);
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--cream);
+    box-shadow: 0 22px 70px rgba(22, 54, 40, .13);
+}
+
+/* Thanh thương hiệu */
+.header {
+    height: 68px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    background: var(--dark);
+}
+
+.logo {
+    width: 37px;
+    height: 37px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: rgba(255,255,255,.13);
+    font-size: 21px;
+}
+
+.brand {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Bố cục chính */
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+}
+
+/* Bên trái */
+.visual-panel {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background: #0b5745;
+}
+
+.visual-panel::before {
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    top: 145px;
+    left: 90px;
+    border-radius: 50%;
+    background: #176d55;
+}
+
+.visual-panel::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: -155px;
+    bottom: -120px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 50%;
+    box-shadow: 0 0 0 30px rgba(255,255,255,.035),
+                0 0 0 60px rgba(255,255,255,.025);
+}
+
+.panel-top,
+.artwork,
+.panel-bottom {
+    position: relative;
+    z-index: 1;
+}
+
+.panel-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.small-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #e0eee3;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+}
+
+.small-label span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #cce7a8;
+}
+
+.edition {
+    color: #c7dfd0;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.artwork {
+    flex: 1;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.artwork svg {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    overflow: visible;
+}
+
+.panel-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.2);
+}
+
+.panel-caption {
+    font-size: 11px;
+    color: #d9e9dd;
+    letter-spacing: .6px;
+}
+
+.panel-number {
+    color: #cce7a8;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* Bên phải: đăng nhập */
+.form-panel {
+    min-width: 0;
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+}
+
+.login-box {
+    width: 100%;
+    max-width: 370px;
+}
+
+.login-box h1 {
+    margin: 0 0 32px;
+    color: #164c3b;
+    font-size: 31px;
+    letter-spacing: -.8px;
+}
+
+.message {
+    padding: 11px 13px;
+    margin-bottom: 17px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.success {
+    color: #17643e;
+    border: 1px solid #cce7d1;
+    background: #edf8ef;
+}
+
+.error {
+    color: #a12a2a;
+    border: 1px solid #f1d0cb;
+    background: #fff1ef;
+}
+
+.field {
+    margin-bottom: 21px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 9px;
+    color: #35564a;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.input-wrap {
+    position: relative;
+}
+
+.input-wrap svg {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    width: 18px;
+    height: 18px;
+    color: #71877a;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.field input {
+    width: 100%;
+    height: 49px;
+    padding: 0 15px 0 44px;
+    border: 1px solid #dce2d8;
+    border-radius: 9px;
+    outline: none;
+    color: #243e34;
+    background: white;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.field input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(8,116,91,.1);
+}
+
+.field input::placeholder {
+    color: #a2aaa2;
+}
+
+.options {
+    margin: 3px 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.remember {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #65776c;
+    cursor: pointer;
+}
+
+.remember input {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    accent-color: var(--green);
+}
+
+.options a,
+.register a {
+    color: var(--green);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.options a:hover,
+.register a:hover {
+    text-decoration: underline;
+}
+
+.submit-btn {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 0;
+    border-radius: 9px;
+    color: white;
+    background: var(--green);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.submit-btn:hover {
+    background: #055943;
+    transform: translateY(-1px);
+}
+
+.submit-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.register {
+    margin: 24px 0 0;
+    color: #78847b;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Tương thích màn hình nhỏ */
+@media (max-width: 800px) {
+    body {
+        padding: 12px;
+        align-items: start;
+    }
+
+    .main {
+        grid-template-columns: 1fr;
+    }
+
+    .visual-panel {
+        padding: 25px;
+    }
+
+    .artwork {
+        min-height: 260px;
+    }
+
+    .artwork svg {
+        max-width: 330px;
+    }
+
+    .form-panel {
+        padding: 35px 25px;
+    }
+}
+
+@media (max-width: 380px) {
+    .options {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .visual-panel {
+        padding: 22px;
+    }
+
+    .login-box h1 {
+        font-size: 28px;
+    }
+}
