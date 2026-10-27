@@ -1,0 +1,10 @@
+
+# File he thong va file tam
+.DS_Store
+Thumbs.db
+*.log
+
+# Thong tin moi truong va bi mat
+.env
+.env.*
+!.env.example
